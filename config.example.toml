@@ -18,8 +18,8 @@ phone = "+6281234567890"
 id_number = "3201234567890001"  # Nomor KTP
 
 [payment]
-# Method: "qris" atau "bank_transfer"
-method = "qris"
+# Method: "virtual_account", "credit_card", "gopay", "bliblipay"
+method = "virtual_account"
 
 [monitor]
 # Interval polling dalam milliseconds (lower = faster, minimum 50)
@@ -59,8 +59,10 @@ name_input = "input[name*='name'], input[name*='nama'], input[id*='name']"
 email_input = "input[name*='email'], input[type='email'], input[id*='email']"
 phone_input = "input[name*='phone'], input[name*='telp'], input[name*='hp'], input[id*='phone']"
 id_input = "input[name*='ktp'], input[name*='id_number'], input[name*='identity'], input[id*='ktp']"
-payment_qris = "div[class*='qris'], label[for*='qris'], input[value*='qris'], button[class*='qris']"
-payment_bank = "div[class*='bank'], label[for*='bank'], input[value*='bank'], button[class*='bank']"
+payment_virtual_account = "div[class*='virtual'], label[for*='virtual'], input[value*='virtual'], button[class*='virtual'], div[class*='bank']"
+payment_credit_card = "div[class*='credit'], label[for*='credit'], input[value*='credit'], button[class*='credit'], div[class*='cc']"
+payment_gopay = "div[class*='gopay'], label[for*='gopay'], input[value*='gopay'], button[class*='gopay']"
+payment_bliblipay = "div[class*='blibli'], label[for*='blibli'], input[value*='blibli'], button[class*='blibli']"
 submit_button = "button[type='submit'], button[class*='submit'], button[class*='bayar'], button[class*='pay']"
 captcha_indicator = "iframe[src*='captcha'], div[class*='captcha'], iframe[src*='recaptcha']"
 success_indicator = "div[class*='success'], div[class*='berhasil'], h1[class*='success']"

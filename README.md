@@ -58,7 +58,7 @@ nano config.toml
 |---------|-----------|
 | `[target]` | URL event, kategori tiket, jumlah, max harga |
 | `[buyer]` | Nama, email, phone, nomor KTP |
-| `[payment]` | Method: `qris` atau `bank_transfer` |
+| `[payment]` | Method: `virtual_account`, `credit_card`, `gopay`, atau `bliblipay` |
 | `[monitor]` | Poll interval, waktu mulai war, pre-warm |
 | `[browser]` | Chrome path, headless mode, user data dir |
 | `[telegram]` | Bot token & chat ID |

@@ -71,8 +71,10 @@ pub struct SelectorsConfig {
     pub email_input: String,
     pub phone_input: String,
     pub id_input: String,
-    pub payment_qris: String,
-    pub payment_bank: String,
+    pub payment_virtual_account: String,
+    pub payment_credit_card: String,
+    pub payment_gopay: String,
+    pub payment_bliblipay: String,
     pub submit_button: String,
     pub captcha_indicator: String,
     pub success_indicator: String,
@@ -120,7 +122,7 @@ impl Config {
                 return Err(AppError::Config("telegram.chat_id must be set when telegram is enabled".into()));
             }
         }
-        let valid_methods = ["qris", "bank_transfer"];
+        let valid_methods = ["virtual_account", "credit_card", "gopay", "bliblipay"];
         if !valid_methods.contains(&self.payment.method.as_str()) {
             return Err(AppError::Config(format!(
                 "payment.method must be one of: {}",

@@ -114,8 +114,10 @@ impl AutoFill {
     pub async fn select_payment(&self, page: &Page) -> Result<()> {
         let start = Instant::now();
         let selector = match self.config.payment.method.as_str() {
-            "qris" => &self.config.selectors.payment_qris,
-            "bank_transfer" => &self.config.selectors.payment_bank,
+            "virtual_account" => &self.config.selectors.payment_virtual_account,
+            "credit_card" => &self.config.selectors.payment_credit_card,
+            "gopay" => &self.config.selectors.payment_gopay,
+            "bliblipay" => &self.config.selectors.payment_bliblipay,
             _ => return Err(AppError::Checkout(format!("Unknown payment method: {}", self.config.payment.method))),
         };
 
