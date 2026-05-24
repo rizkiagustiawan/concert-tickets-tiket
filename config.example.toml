@@ -1,0 +1,66 @@
+# Tiket War Bot Configuration
+# Copy this to config.toml and fill in your details
+
+[target]
+# URL halaman event/konser di tiket.com
+url = "https://www.tiket.com/to-do/e/some-concert-123"
+# Kategori tiket yang diinginkan (exact match dengan text di halaman)
+ticket_category = "CAT 1"
+# Jumlah tiket
+quantity = 2
+# Harga maksimum per tiket (IDR), 0 = no limit
+max_price = 0
+
+[buyer]
+name = "Nama Lengkap"
+email = "email@example.com"
+phone = "+6281234567890"
+id_number = "3201234567890001"  # Nomor KTP
+
+[payment]
+# Method: "qris" atau "bank_transfer"
+method = "qris"
+
+[monitor]
+# Interval polling dalam milliseconds (lower = faster, minimum 50)
+poll_interval_ms = 100
+# Waktu mulai war (ISO 8601 format, WIB = +07:00)
+start_time = "2025-06-01T10:00:00+07:00"
+# Mulai warming up N detik sebelum start_time
+pre_warm_seconds = 30
+
+[browser]
+# Path ke Chrome/Chromium executable (kosong = auto-detect)
+chrome_path = ""
+# Headless mode (false = recommended, bisa lihat browser)
+headless = false
+# Chrome user data directory untuk simpan session login
+# Kosong = pakai temp dir
+user_data_dir = ""
+
+[telegram]
+enabled = true
+bot_token = "YOUR_BOT_TOKEN_HERE"
+chat_id = "YOUR_CHAT_ID_HERE"
+
+[speed]
+# Jumlah tab parallel untuk monitoring
+parallel_tabs = 3
+# Pre-establish TCP connections sebelum war
+pre_connect = true
+
+[selectors]
+# CSS selectors untuk elemen di halaman tiket.com
+# Sesuaikan jika tiket.com update layout
+buy_button = "button[class*='buy'], button[class*='beli'], a[class*='buy'], a[class*='beli']"
+ticket_category_selector = "div[class*='ticket'], div[class*='category'], li[class*='ticket']"
+quantity_input = "input[type='number'], select[class*='quantity'], input[class*='qty']"
+name_input = "input[name*='name'], input[name*='nama'], input[id*='name']"
+email_input = "input[name*='email'], input[type='email'], input[id*='email']"
+phone_input = "input[name*='phone'], input[name*='telp'], input[name*='hp'], input[id*='phone']"
+id_input = "input[name*='ktp'], input[name*='id_number'], input[name*='identity'], input[id*='ktp']"
+payment_qris = "div[class*='qris'], label[for*='qris'], input[value*='qris'], button[class*='qris']"
+payment_bank = "div[class*='bank'], label[for*='bank'], input[value*='bank'], button[class*='bank']"
+submit_button = "button[type='submit'], button[class*='submit'], button[class*='bayar'], button[class*='pay']"
+captcha_indicator = "iframe[src*='captcha'], div[class*='captcha'], iframe[src*='recaptcha']"
+success_indicator = "div[class*='success'], div[class*='berhasil'], h1[class*='success']"
